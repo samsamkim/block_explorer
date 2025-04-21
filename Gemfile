@@ -4,8 +4,7 @@ source "https://rubygems.org"
 gem "pry", "~> 0.15.0"
 
 # Use TailwindCSS for styling
-gem "tailwindcss-rails", "~> 3.3.1"
-
+gem "tailwindcss-rails"
 
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"

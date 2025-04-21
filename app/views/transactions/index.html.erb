@@ -1,20 +1,24 @@
-<h1>Transactions</h1>
+<div class="w-full mx-auto px-4 py-8">
+  <h1 class="text-3xl font-bold mb-6 text-center text-pink-700">Transactions</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Sender</th>
-      <th>Receiver</th>
-      <th>Deposit</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @transactions.each do |t| %>
-      <tr>
-        <td><%= t.sender %></td>
-        <td><%= t.receiver %></td>
-        <td><%= number_with_delimiter(t.deposit.to_s) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <div class="overflow-x-auto rounded-lg shadow-md border border-pink-200">
+    <table class="min-w-full divide-y divide-pink-200">
+      <thead class="bg-pink-100">
+        <tr class="text-xs font-semibold text-pink-700 uppercase text-left">
+          <th class="px-6 py-3">Sender</th>
+          <th class="px-6 py-3">Receiver</th>
+          <th class="px-6 py-3">Deposit</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-pink-100">
+        <% @transactions.each do |t| %>
+          <tr class="hover:bg-pink-50 transition">
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"><%= t.sender %></td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"><%= t.receiver %></td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"><%= number_with_delimiter(t.deposit.to_s) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
