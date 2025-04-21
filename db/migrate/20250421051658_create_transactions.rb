@@ -6,14 +6,16 @@ class CreateTransactions < ActiveRecord::Migration[8.0]
       t.integer :block_height
       t.string :sender
       t.string :receiver
-      t.decimal :deposit, precision: 40, scale: 0
+      t.string :deposit
       t.datetime :tx_time
       t.jsonb :actions
       t.string :gas_burnt
       t.boolean :success
-      t.integer :actions_count
+      t.integer :action_count
 
       t.timestamps
     end
+
+    add_index :transactions, :tx_hash, unique: true
   end
 end

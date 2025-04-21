@@ -1,5 +1,13 @@
 source "https://rubygems.org"
 
+# Use pry for debugging
+gem "pry", "~> 0.15.0"
+
+# Use TailwindCSS for styling
+gem "tailwindcss-rails", "~> 3.3.1"
+
+
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.0.1"
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
