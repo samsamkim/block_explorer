@@ -31,12 +31,17 @@ cd block_explorer
 bundle install
 ```
 
-3. **Run the app**
+3. **Run the migration**
+```bash
+rails db:migrate
+```
+
+4. **Run the app**
 ```bash
 bin/dev
 ```
 
-4. **Fetch the NEAR transactions manually**
+5. **Fetch the NEAR transactions manually**
 ```bash
 rails near:fetch_transactions
 ```
