@@ -2,6 +2,8 @@
 
 This is a simple Rails application that fetches and displays NEAR blockchain transactions. It polls a mock API endpoint and shows historical transactions that involve **transfer actions**, persisting them locally for display.
 
+![Screenshot 2025-04-21 at 6 35 16 PM](https://github.com/user-attachments/assets/e49dee5a-93dc-44d6-b93d-9d5fdf00d35e)
+
 ## Requirements
 - Display a list of **transfers** with:
   - `sender`
