@@ -1,5 +1,5 @@
 class TransactionsController < ApplicationController
   def index
-    @transactions = Transaction.order(tx_time: :desc)
+    @transactions = Transaction.order(block_height: :desc)
   end
 end

@@ -1,10 +1,10 @@
 require "net/http"
-require "uri"
-require "json"
 
 class FetchNearTransactions
   API_URL = "https://4816b0d3-d97d-47c4-a02c-298a5081c0f9.mock.pstmn.io/near/transactions"
-  API_KEY = "SECRET_API_KEY"
+
+  # defaults to "SECRET_API_KEY"
+  API_KEY = ENV.fetch("NEAR_API_KEY", "SECRET_API_KEY")
 
   def self.call
     uri = URI(API_URL)
@@ -21,21 +21,18 @@ class FetchNearTransactions
   end
 
   def self.save_new_transactions(transactions)
-    transfer_txs = transactions.select do |tx|
-      tx["actions"].any? { |a| a["type"] == "Transfer" }
-    end
-
+    # only save transactions of type "Transfer"
+    transfer_txs = transactions.select { |tx| tx["actions"].any? { |a| a["type"] == "Transfer" } }
     # only save new transactions
-    new_txs = transfer_txs.reject do |tx|
-      Transaction.exists?(tx_hash: tx["hash"])
-    end
+    new_txs = transfer_txs.reject { |tx| Transaction.exists?(tx_hash: tx["hash"]) }
 
     records = new_txs.map do |tx|
       {
         sender: tx["sender"],
         receiver: tx["receiver"],
         deposit: tx["actions"].first["data"]["deposit"],
-        tx_hash: tx["hash"]
+        tx_hash: tx["hash"],
+        block_height: tx["height"]
       }
     end
 
