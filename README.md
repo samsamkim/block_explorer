@@ -22,7 +22,7 @@ This is a simple Rails application that fetches and displays NEAR blockchain tra
 
 1. **Clone this repository**
 ```bash
-git clone https://github.com/your-username/block-explorer.git
+git clone https://github.com/samsamkim/block-explorer.git
 cd block-explorer
 ```
 
@@ -60,7 +60,7 @@ To keep things lightweight and focused on the assignment's core requirements, I 
 - Better performance in highly interactive interfaces
 
 ### Saving only Transfer transactions
-Again, to focus on the assignment's core requirements, I chose to only save "Transfer" transactions. In the future, if we want to keep all types of records, we can introduce a scope that would help us filter our transactions with something like the following:
+Again, to focus on the assignment's core requirements, I only saved "Transfer" transactions. In the future, if we want to keep all types of records, we can introduce a scope that would help us filter our transactions with something like the following:
 
 ```ruby
 scope :transfers, -> { where("actions @> ?", [{ type: "Transfer" }].to_json) }
@@ -91,10 +91,10 @@ Sidekiq or another background job processor could be used to fetch transactions 
 
 ### Data Scalability
 For extremely high-volume scenarios (millions/billions of transactions), we might want to consider:
-- Indexing on common filter keys if we decide on adding filtering
+- Indexing on common filter keys if we decide to add filtering
 - Archiving old data to reduce query load
 - Partitioning or sharding if it gets to billions of records
-- Caching and queuing background jobs if necessary by Redis 
+- Caching and queuing background jobs if necessary by Redis
 
 ### Security and Auth
 Currently, the API key is loaded from an environment variable. In a production setting, we should probably use a credential management solution like Rails credentials and secure the /near/transactions endpoint behind authentication if needed
