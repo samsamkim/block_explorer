@@ -23,7 +23,7 @@ This is a simple Rails application that fetches and displays NEAR blockchain tra
 1. **Clone this repository**
 ```bash
 git clone https://github.com/samsamkim/block_explorer.git
-cd block-explorer
+cd block_explorer
 ```
 
 2. **Install dependencies**
