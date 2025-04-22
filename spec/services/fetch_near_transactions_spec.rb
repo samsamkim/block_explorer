@@ -35,7 +35,7 @@ RSpec.describe FetchNearTransactions do
           "hash" => "tx_002",
           "sender" => "sender_x",
           "receiver" => "receiver_y",
-          "actions" => [{ "type" => "FunctionCall", "data" => {} }]
+          "actions" => [ { "type" => "FunctionCall", "data" => {} } ]
         }
       ].to_json
 
