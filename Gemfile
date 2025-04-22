@@ -1,5 +1,12 @@
 source "https://rubygems.org"
 
+# Use pry for debugging
+gem "pry", "~> 0.15.0"
+
+# Use TailwindCSS for styling
+gem "tailwindcss-rails"
+
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.0.1"
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
@@ -49,6 +56,10 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+
+  # Use RSpec for testing
+  gem "rspec-rails", "~> 7.0.0"
+  gem "factory_bot_rails"
 end
 
 group :development do

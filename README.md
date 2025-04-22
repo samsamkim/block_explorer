@@ -22,3 +22,11 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+
+
+
+
+In a real-world scenario, if the API returned thousands of records or supported pagination, I would implement batching and paginated fetching. I might also chunk the insert_all calls into smaller slices (e.g., 500 records per batch) to avoid large single queries.
+
